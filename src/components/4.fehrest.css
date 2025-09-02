@@ -1,0 +1,121 @@
+/* 4 - fehrest */
+.fehrest-section {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer 10+ */
+  /* padding: 12px; */
+}
+
+.fehrest-header {
+  margin-top: 20px;
+  position: relative;
+  /* margin-top: 16px; */
+}
+
+.book-selector-label {
+  font-size: 16px;
+  margin-bottom: 4px;
+  margin-right: 16px;
+  /* margin-top: 18px; */
+  font-weight: bold;
+  z-index: 10;
+  width: 96px;
+  text-align: center;
+  transform: translateY(50%);
+  /* position: absolute; */
+  display: block;
+  background-color: #ebebeb;
+}
+
+.book-selector {
+  /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; */
+  cursor: pointer;
+  border: 1px solid #838383;
+  width: 100%;
+  height: 48px;
+  padding-right: 8px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  /* text-align: center; */
+  border-radius: 6px;
+  font-weight: bold;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: left 12px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+
+.fehrest-list {
+  box-sizing: border-box;
+}
+
+.fehrest-list div {
+  color: #000;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  padding: 8px 8px;
+}
+
+.fehrest-list div {
+  display: block;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.fehrest-list div:hover {
+  color: #333;
+  background-color: rgba(225, 163, 193, 0.6);
+}
+
+.chapter {
+  margin-bottom: 4px;
+}
+
+.chapter::before {
+  content: "❯";
+  padding-left: 8px;
+  padding-right: 0px;
+}
+
+.article {
+  margin: 4px 0;
+}
+
+.articles {
+  border-right: 2px solid #000;
+  padding-right: 4px;
+  margin-bottom: 8px;
+  margin-right: 12px;
+  overflow: hidden;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.fehrest-list div.active {
+  color: #333;
+  background-color: rgba(225, 163, 193);
+}
+
+.articles.expanded {
+  max-height: 100vh;
+}
+
+li.chapter:last-of-type {
+  margin-bottom: 64px;
+}

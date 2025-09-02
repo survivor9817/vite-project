@@ -1,0 +1,85 @@
+/* 2 - sidebars */
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* transform: translatex(-50%); */
+  width: 320px;
+  height: 100vh;
+  padding: 12px;
+  background-color: #ebebeb;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-right {
+  right: 0;
+  transform: translateX(+105%);
+  box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  z-index: 70;
+  /* border-radius: 24px; */
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  /* scrollbar-width: none;  */
+  /* -ms-overflow-style: none;  */
+}
+
+.sidebar-left {
+  left: 0;
+  transform: translateX(-105%);
+  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  /* border-radius: 24px; */
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.opened-sidebar {
+  transform: translateX(0%);
+}
+
+.closer-btn {
+  all: unset;
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 8px;
+  border-radius: 64px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.closer-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* فقط کمی تغییر رنگ پس‌زمینه */
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); */
+  transform: scale(1.05);
+}
+
+.icon--cancel {
+  font-size: 36px;
+}
+
+.backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: black;
+}
+
+.fehrest-backdrop {
+  z-index: 65;
+  opacity: 25%;
+}
+
+.menu-backdrop {
+  z-index: 80;
+  opacity: 50%;
+}
+
+.backdrop-visible {
+  display: block;
+}

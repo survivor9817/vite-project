@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- besmellah -->
+      <!-- sidebare fehrest -->
+      <div class="sidebar sidebar-right">
+        <button id="FehrestCloserBtn" class="closer-btn">
+          <i class="msr icon--cancel"> cancel </i>
+        </button>
+        <div class="fehrest-section">
+          <header class="fehrest-header">
+            <label for="BookSelector" class="book-selector-label"
+              >فهرست کتاب</label
+            >
+            <select
+              id="BookSelector"
+              name="BookSelector"
+              class="book-selector"
+            ></select>
+          </header>
+          <ol id="fehrestList" class="fehrest-list"></ol>
+        </div>
+      </div>
+      <div id="FehrestBackdrop" class="backdrop fehrest-backdrop"></div>
+
+      <!-- sidebare menu -->
+      <div class="sidebar sidebar-left">
+        <button id="MenuCloserBtn" class="closer-btn">
+          <i class="msr icon--cancel"> cancel </i>
+        </button>
+        <div class="menu-section">
+          <img
+            src="./src/components/imgs/reza.jpg"
+            alt="user-img"
+            class="user-img"
+          />
+          <div class="user-name">رضا قزلسفلو</div>
+          <span class="user-role">معلم مدرسه</span>
+          <div class="divider"></div>
+          <ul class="menu-items-container">
+            <li class="menu-item">صفحه کاربری</li>
+            <li class="menu-item">خرید جدید</li>
+            <li class="menu-item">تمرین‌های قبلی</li>
+            <li class="menu-item">طراحی امتحان</li>
+            <li class="menu-item">اضافه کردن سؤال</li>
+            <li class="menu-item">تنظیمات</li>
+          </ul>
+        </div>
+      </div>
+      <div id="MenuBackdrop" class="backdrop menu-backdrop"></div>
+
+      <!-- main -->
+      <div class="main-section">
+        <!-- navbar -->
+        <div class="nav-bar">
+          <button id="FehrestBtn" class="nav-btn fehrest-btn">
+            <i class="msr icon--fehrest"> list </i>
+            <span class="tab-label">فهرست</span>
+          </button>
+          <div class="tab-btns-container">
+            <button id="BookTabBtn" class="nav-btn tab-btn--book">
+              <i class="msr icon--book"> menu_book </i>
+              <span class="tab-label">کتاب</span>
+            </button>
+            <button id="ExerciseTabBtn" class="nav-btn tab-btn--exercise">
+              <i class="msr icon--exercise"> exercise </i>
+              <span class="tab-label">تمرین</span>
+            </button>
+            <button id="YavarTabBtn" class="nav-btn tab-btn--ai">
+              <i class="msr icon--ai"> school </i>
+              <span class="tab-label">یاور</span>
+            </button>
+            <div id="ActiveTabIndicator" class="active-tab-indicator"></div>
+          </div>
+          <button id="MenuBtn" class="nav-btn menu-btn">
+            <i class="msr icon--menu"> menu </i>
+            <span class="tab-label">منو</span>
+          </button>
+        </div>
+
+        <!-- tabs -->
+        <div id="TabsContainer" class="tabs-container">
+          <!-- ketab -->
+          <div id="BookTabContainer" class="tab-container">
+            <!-- book pagination -->
+            <div id="bookPagination" class="book-pagination">
+              <div id="PageNavigator" class="page-navigator">
+                <button id="PrevPageBtn" class="btn--prev-page">
+                  <i class="msr icon-btn"> arrow_circle_right </i>
+                </button>
+                <button id="NextPageBtn" class="btn--next-page">
+                  <i class="msr icon-btn"> arrow_circle_left </i>
+                </button>
+
+                <input
+                  id="PageInputRange"
+                  type="range"
+                  min="1"
+                  maxlength="3"
+                  value="1"
+                  step="1"
+                />
+                <input
+                  id="PageInputNumber"
+                  type="text"
+                  min="1"
+                  pattern=""
+                  inputmode="numeric"
+                />
+              </div>
+            </div>
+
+            <!-- book content -->
+            <div id="BookSection" class="book-section"></div>
+          </div>
+
+          <!-- tamrin -->
+          <div id="ExerciseTabContainer" class="tab-container">
+            <!-- filter section -->
+            <form class="filter-section">
+              <div class="exercise-filters">
+                <div class="filter-criteria">
+                  <label for="Where">از کجای کتاب تمرین می‌خوای؟</label>
+                  <select id="Where" name="Where" data-step="1">
+                    <option value="" selected></option>
+                  </select>
+                </div>
+                <div class="filter-criteria">
+                  <label for="Level">در چه سطحی باشند؟</label>
+                  <select id="Level" name="Level" data-step="2">
+                    <option value="" selected></option>
+                  </select>
+                </div>
+                <div class="filter-criteria">
+                  <label for="Source">از چه منبعی باشند؟</label>
+                  <select id="Source" name="Source" data-step="3">
+                    <option value="" selected></option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="btn-container" data-step="4">
+                <button type="submit" class="start-exercise-btn">
+                  <!-- <i class="msr icon-btn"> filter_alt </i> -->
+                  <span>شروع تمرین</span>
+                </button>
+              </div>
+            </form>
+
+            <div id="ExercisesContainer" class="exercises-container">
+              <!-- Row 1 : Navigation Buttons of Exercise Section -->
+              <div class="exercise-navbar">
+                <button class="btn--exercise-prev">
+                  <i class="msr icon-btn"> arrow_circle_right </i>
+                </button>
+                <button class="btn--exercise-next">
+                  <i class="msr icon-btn"> arrow_circle_left </i>
+                </button>
+              </div>
+
+              <!-- Row 2 : Exercise Number and Tags -->
+              <div class="number-tags-container">
+                <div class="exercise-number"></div>
+                <div class="tags-container">
+                  <ul class="tags-list"></ul>
+                </div>
+              </div>
+
+              <!-- Row 3 : Exercise Number and Tags -->
+              <div class="progress-wrapper">
+                <div class="progress-container">
+                  <div class="progress-bar" id="ProgressBar"></div>
+                </div>
+              </div>
+
+              <!-- Row 4 : Question Box -->
+              <div class="exercise__question-box">
+                <div class="question-container"></div>
+
+                <!-- user feedbacks -->
+                <div class="feedback-msg-container">
+                  <ul class="feedback-msg-list">
+                    <li class="feedback-msg feedback-msg--correct">
+                      <i class="msr"> check_circle </i>
+                      <span>درست گفتم!</span>
+                    </li>
+                    <li class="feedback-msg feedback-msg--incorrect">
+                      <i class="msr"> cancel </i>
+                      <span>اشتباه گفتم!</span>
+                    </li>
+                    <li class="feedback-msg feedback-msg--like">
+                      <i class="msr"> favorite </i>
+                      <span>سؤال قشنگیه!</span>
+                    </li>
+                    <li class="feedback-msg feedback-msg--star">
+                      <i class="msr"> stars </i>
+                      <span>سؤال مهمیه!</span>
+                    </li>
+                    <li class="feedback-msg feedback-msg--report">
+                      <i class="msr"> error </i>
+                      <span>ایراد داره!</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Row 5 : Middle Row : answerToggle-authorLink-userInputs -->
+              <div class="exercise__middle-bar">
+                <div class="toggle-author-container">
+                  <div id="ShowAnswerBtn" class="btn--show-answer"></div>
+                  <div class="exercise-author">
+                    <i class="msr"> draft_orders </i>
+                    <span id="AuthorFullName"></span>
+                  </div>
+                </div>
+                <div class="details-inputBtns-container">
+                  <div class="exercise-details"></div>
+                  <div class="exercise-feedback-btns">
+                    <button name="correct" class="btn--correct">
+                      <i class="msr icon-btn"> check_circle </i>
+                    </button>
+                    <button name="incorrect" class="btn--incorrect">
+                      <i class="msr icon-btn"> cancel </i>
+                    </button>
+                    <button name="like" class="btn--like">
+                      <i class="msr icon-btn"> favorite </i>
+                    </button>
+                    <button name="star" class="btn--star">
+                      <i class="msr icon-btn"> stars </i>
+                    </button>
+                    <button name="report" class="btn--report">
+                      <i class="msr icon-btn"> error </i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 6 : Answer Box -->
+              <div class="exercise__answer-box">
+                <div class="descriptive-answer"></div>
+                <!-- Row 7 : References -->
+                <div class="exercise-bottom-bar">
+                  <ul class="ref-list"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- yavar -->
+          <div id="YavarTabContainer" class="tab-container">
+            <div class="chat-container">
+              <div class="messages-container">
+                <div class="welcome-massage">
+                  <div>در خدمتم رضا جان</div>
+                  <div>
+                    هر سوال درسی یا مشاوره‌ای داشتی <br />می‌تونی از من بپرسی 🤗
+                  </div>
+                </div>
+              </div>
+              <div class="chat-input-container">
+                <textarea
+                  class="chat-input"
+                  name="input-message"
+                  id="chatInput"
+                  placeholder="سؤالت رو اینجا بنویس..."
+                ></textarea>
+                <button class="send-btn" id="sendButton">
+                  <i class="msr"> arrow_circle_up </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

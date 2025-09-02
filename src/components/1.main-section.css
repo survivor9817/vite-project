@@ -1,0 +1,146 @@
+/* #root {
+  height: 100vh;
+  height: 100dvh;
+} */
+
+/* 1 - main-section */
+.main-section {
+  max-width: 840px;
+  min-width: 320px;
+  margin: auto;
+  overflow: hidden;
+  /* height: 100dvh; */
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  .main-section {
+    flex-direction: column-reverse;
+  }
+}
+
+/* nav bar styles */
+.nav-bar {
+  display: flex;
+  background: #eee;
+  /* border-radius: 0px 0px 24px 24px; */
+  overflow: hidden;
+}
+
+.tab-btns-container {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+}
+
+.tab-btn--book,
+.tab-btn--exercise,
+.tab-btn--ai {
+  flex-grow: 1;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  width: 64px;
+  cursor: pointer;
+  /* background: #eee; */
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #ddd;
+}
+
+.tab-label {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.fehrest-btn .tab-label,
+.menu-btn .tab-label {
+  display: none;
+}
+
+.active-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 33.33%; /* activeTabIndicator.style.width = `${100 / tabsCount}%`; */
+  height: 4px;
+  background-color: dodgerblue;
+  transition: transform 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-btn {
+    flex-direction: column;
+  }
+
+  .tab-label {
+    margin-right: 0px;
+    font-size: 14px;
+  }
+
+  .fehrest-btn .tab-label,
+  .menu-btn .tab-label {
+    display: block;
+  }
+
+  .active-tab-indicator {
+    top: 0;
+  }
+}
+
+.icon--fehrest {
+  font-size: 36px;
+  transform: scale(-1);
+}
+.icon--book {
+  font-size: 32px;
+}
+.icon--exercise {
+  font-size: 32px;
+  transform: rotate(45deg);
+}
+.icon--ai {
+  font-size: 32px;
+}
+.icon--menu {
+  font-size: 30px;
+}
+
+/* tabs container */
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease;
+  width: 300%; /* tabsContainer.style.width = `${100 * tabsCount}%`; */
+  height: calc(100vh - 58px);
+  height: calc(100dvh - 58px);
+}
+
+.tab-container {
+  flex-shrink: 0;
+  overflow: auto;
+  width: 33.33%; /* tabContainer.style.width = `${100 / tabsCount}%`; */
+  /* width: 33.33%; */
+  height: 100%;
+  position: relative;
+}
+
+/* tabsContainer.style.transform = `translateX(${index * (100 / tabsCount)}%)`; */
+/* activeTabIndicator.style.transform = `translateX(${index * -100}%)`; */
+
+.book-section {
+  height: 100%;
+  overflow: auto;
+}
+
+p {
+  line-height: 1.5rem;
+}
